@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./HomeScreen";
 import ContactScreen from "./ContactScreen";
-import AboutSceen from "./AboutSceen";
+import AboutScreen from "./AboutScreen";
 const Drawer = createDrawerNavigator();
 const screenOptions = {
   headerTintColor: "#fff",
@@ -36,7 +36,7 @@ const AboutNavigator = () => {
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="About"
-        component={AboutSceen}
+        component={AboutScreen}
         options={{ title: "About us" }}
       />
     </Stack.Navigator>
@@ -84,7 +84,7 @@ const Main = () => {
     >
       <Drawer.Navigator
         initialRouteName="Home"
-        drawerStyle={{ backgroundColor: "#CEC8FF", marginLeft: 100 }}
+        drawerStyle={{ backgroundColor: "#CEC8FF", marginLeft: 10 }}
       >
         <Drawer.Screen
           name="Home"

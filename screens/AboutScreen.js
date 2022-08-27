@@ -1,8 +1,9 @@
 import React from "react";
 import { ScrollView } from "react-native";
 
-const AboutSceen = () => {
+const Mission = () => {};
+const AboutScreen = () => {
   return <ScrollView></ScrollView>;
 };
 
-export default AboutSceen;
+export default AboutScreen;
