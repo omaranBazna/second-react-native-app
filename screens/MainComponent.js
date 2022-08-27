@@ -43,7 +43,7 @@ const DirectoryNavigator = () => {
       ></Stack.Screen>
       <Stack.Screen
         name="CampsiteInfo"
-        component={CampsiteInfoScreen}
+        component={CampsitesInfoScreen}
         options={({ route }) => ({
           title: route.params.campsite.name,
         })}
