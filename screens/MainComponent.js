@@ -7,6 +7,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./HomeScreen";
+
+const Drawer = createDrawerNavigator();
 const screenOptions = {
   headerTintColor: "#fff",
   headerStyle: { backgroundColor: "#5637DD" },
@@ -51,7 +53,10 @@ const Main = () => {
         paddingTop: Platform.OS == "ios" ? 0 : Constants.statusBarHeight,
       }}
     >
-      <DirectoryNavigator />
+      <Drawer.Navigator
+        initialRouteName="Home"
+        drawerStyle={{ backgroundColor: "#CEC8FF" }}
+      ></Drawer.Navigator>
     </View>
   );
 };
