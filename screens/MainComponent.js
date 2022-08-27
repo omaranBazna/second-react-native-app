@@ -22,7 +22,7 @@ const ContactNavigator = () => {
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="Contact"
-        component={HomeScreen}
+        component={ContactScreen}
         options={{ title: "Contact us" }}
       />
     </Stack.Navigator>
@@ -36,7 +36,7 @@ const AboutNavigator = () => {
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="About"
-        component={HomeScreen}
+        component={AboutSceen}
         options={{ title: "About us" }}
       />
     </Stack.Navigator>
@@ -84,7 +84,7 @@ const Main = () => {
     >
       <Drawer.Navigator
         initialRouteName="Home"
-        drawerStyle={{ backgroundColor: "#CEC8FF" }}
+        drawerStyle={{ backgroundColor: "#CEC8FF", marginLeft: 100 }}
       >
         <Drawer.Screen
           name="Home"
