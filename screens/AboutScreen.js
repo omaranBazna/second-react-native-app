@@ -3,6 +3,8 @@ import { ScrollView } from "react-native";
 import { useState } from "react";
 import { PARTNERS } from "../shared/partners";
 import { ListItem } from "react-native-elements";
+import { Card } from "react-native-elements";
+import { Text } from "react-native";
 const Mission = () => {
   return (
     <Card>
