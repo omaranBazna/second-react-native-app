@@ -6,7 +6,8 @@ import Constants from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "./HomeScreen";
-
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import HomeScreen from "./HomeScreen";
 const screenOptions = {
   headerTintColor: "#fff",
   headerStyle: { backgroundColor: "#5637DD" },
@@ -27,15 +28,7 @@ const HomeNavigator = () => {
 const DirectoryNavigator = () => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator
-      initialRouteName="Directory"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#5637DD",
-        },
-        headerTintColor: "#fff",
-      }}
-    >
+    <Stack.Navigator initialRouteName="Directory" screenOptions={screenOptions}>
       <Stack.Screen
         name="Directory"
         component={DirectoryScreen}
