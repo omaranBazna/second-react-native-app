@@ -56,7 +56,18 @@ const Main = () => {
       <Drawer.Navigator
         initialRouteName="Home"
         drawerStyle={{ backgroundColor: "#CEC8FF" }}
-      ></Drawer.Navigator>
+      >
+        <Drawer.Screen
+          name="Home"
+          component={HomeNavigator}
+          options={{ title: "Home" }}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Directory"
+          component={DirectoryNavigator}
+          options={{ title: "Directory" }}
+        ></Drawer.Screen>
+      </Drawer.Navigator>
     </View>
   );
 };
