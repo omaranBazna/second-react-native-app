@@ -53,7 +53,12 @@ const DirectoryNavigator = () => {
 };
 const Main = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        paddingTop: Platform.OS == "ios" ? 0 : Constants.statusBarHeight,
+      }}
+    >
       <DirectoryNavigator />
     </View>
   );
