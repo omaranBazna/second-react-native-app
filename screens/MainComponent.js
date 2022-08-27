@@ -5,7 +5,6 @@ import { Platform, View, Text } from "react-native";
 import Constants from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "./HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./HomeScreen";
 const screenOptions = {
