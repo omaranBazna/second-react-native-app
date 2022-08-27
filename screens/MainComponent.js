@@ -96,6 +96,18 @@ const Main = () => {
           component={DirectoryNavigator}
           options={{ title: "Directory" }}
         ></Drawer.Screen>
+
+        <Drawer.Screen
+          name="About"
+          component={AboutNavigator}
+          options={{ title: "About" }}
+        ></Drawer.Screen>
+
+        <Drawer.Screen
+          name="Contact"
+          component={ContactNavigator}
+          options={{ title: "Contact" }}
+        ></Drawer.Screen>
       </Drawer.Navigator>
     </View>
   );
