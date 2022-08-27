@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { useState } from "react";
 import { PARTNERS } from "../shared/partners";
-import { ListItem } from "react-native-elements";
+import { Avatar, ListItem } from "react-native-elements";
 import { Card } from "react-native-elements";
 import { Text } from "react-native";
 const Mission = () => {
@@ -32,7 +32,15 @@ const AboutScreen = () => {
         <Card.Title>Community Partners</Card.Title>
         <Card.Divider />
         {partners.map((partner) => {
-          return <ListItem key={partner.id}></ListItem>;
+          return (
+            <ListItem key={partner.id}>
+              <Avatar source={partner.image} rounded />
+              <ListItem.Content>
+                <ListItem.Title>{partner.name}</ListItem.Title>
+                <ListItem.Subtitle>{partner.description}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          );
         })}
       </Card>
     </ScrollView>
