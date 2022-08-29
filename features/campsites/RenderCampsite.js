@@ -13,6 +13,7 @@ const RenderCampsite = ({ campsite }) => {
           </View>
         </Card.Image>
         <Text style={{ margin: 20 }}>{campsite.description}</Text>
+        <Icon name="heart-o" type="font-awesome" color="#f50" raised reverse />
       </Card>
     );
   }
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     padding: 0,
     margin: 0,
+    marginBottom: 20,
   },
 });
 
