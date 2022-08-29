@@ -28,12 +28,14 @@ const ContactNavigator = () => {
           return {
             title: "Contact us",
             headerLeft: () => {
-              <Icon
-                name="address-card"
-                type="font-awesome"
-                icon-style={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-              />;
+              return (
+                <Icon
+                  name="address-card"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
             },
           };
         }}
@@ -54,12 +56,14 @@ const AboutNavigator = () => {
           return {
             title: "About",
             headerLeft: () => {
-              <Icon
-                name="info-circle"
-                type="font-awesome"
-                icon-style={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-              />;
+              return (
+                <Icon
+                  name="info-circle"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
             },
           };
         }}
@@ -105,12 +109,14 @@ const DirectoryNavigator = () => {
           return {
             title: "Campsite Directory",
             headerLeft: () => {
-              <Icon
-                name="list-icon"
-                type="font-awesome"
-                icon-style={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-              />;
+              return (
+                <Icon
+                  name="list-icon"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
             },
           };
         }}
