@@ -75,17 +75,21 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }) => ({
-          title: "Home",
-          headerLeft: () => {
-            <Icon
-              name="home"
-              type="font-awesome"
-              icon-style={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
-            />;
-          },
-        })}
+        options={({ navigation }) => {
+          return {
+            title: "Home",
+            headerLeft: () => {
+              return (
+                <Icon
+                  name="home"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
+            },
+          };
+        }}
       />
     </Stack.Navigator>
   );
@@ -161,7 +165,7 @@ const Main = () => {
 };
 const styles = StyleSheet.create({
   stackIcon: {
-    marginLeft: 10,
+    marginLeft: 30,
     color: "#fff",
     fontSize: 24,
   },
