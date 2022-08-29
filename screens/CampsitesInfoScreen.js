@@ -34,6 +34,7 @@ const RenderCommentItem = ({ item }) => {
 const CampsitesInfoScreen = ({ route }) => {
   const { campsite } = route.params;
   const [comments, setComments] = useState(COMMENTS);
+  const [favorite, setFavorite] = useState(false);
   return (
     <FlatList
       data={comments.filter((comment) => comment.campsiteId === campsite.id)}
@@ -47,7 +48,13 @@ const CampsitesInfoScreen = ({ route }) => {
       }}
       ListHeaderComponent={
         <>
-          <RenderCampsite campsite={campsite} />
+          <RenderCampsite
+            campsite={campsite}
+            isFavorite={favorite}
+            markFavorite={() => {
+              setFavorite(true);
+            }}
+          />
           <Text style={styles.commentsTitle}>Comments</Text>
         </>
       }
