@@ -105,7 +105,19 @@ const DirectoryNavigator = () => {
       <Stack.Screen
         name="Directory"
         component={DirectoryScreen}
-        options={{ title: "Directory" }}
+        options={({ navigation }) => {
+          return {
+            title: "Campsite Directory",
+            headerLeft: () => {
+              <Icon
+                name="list-icon"
+                type="font-awesome"
+                icon-style={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+              />;
+            },
+          };
+        }}
       ></Stack.Screen>
       <Stack.Screen
         name="CampsiteInfo"
