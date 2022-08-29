@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
-import { Card } from "react-native-elements";
+import { Card, Icon } from "react-native-elements";
+import { StyleSheet } from "react-native";
 const RenderCampsite = ({ campsite }) => {
   if (campsite) {
     return (
@@ -17,5 +18,12 @@ const RenderCampsite = ({ campsite }) => {
   }
   return <View />;
 };
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    padding: 0,
+    margin: 0,
+  },
+});
 
 export default RenderCampsite;
