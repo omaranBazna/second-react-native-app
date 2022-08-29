@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { StyleSheet } from "react-native";
-const RenderCampsite = ({ campsite }) => {
+const RenderCampsite = ({ campsite, isFavorite, markFavorite }) => {
   if (campsite) {
     return (
       <Card containerStyle={{ padding: 0 }}>
@@ -13,7 +13,17 @@ const RenderCampsite = ({ campsite }) => {
           </View>
         </Card.Image>
         <Text style={{ margin: 20 }}>{campsite.description}</Text>
-        <Icon name="heart-o" type="font-awesome" color="#f50" raised reverse />
+        <Icon
+          onPress={() => {
+            console.log("test");
+            markFavorite();
+          }}
+          name={isFavorite ? "heart" : "heart-o"}
+          type="font-awesome"
+          color="#f50"
+          raised
+          reverse
+        />
       </Card>
     );
   }
