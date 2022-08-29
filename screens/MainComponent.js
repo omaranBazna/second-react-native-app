@@ -1,5 +1,6 @@
 import DirectoryScreen from "./DirectoryScreen";
-
+import { StyleSheet } from "react-native";
+import { Icon } from "react-native-elements";
 import CampsitesInfoScreen from "./CampsitesInfoScreen";
 import { Platform, View, Text } from "react-native";
 import Constants from "expo-constants";
@@ -50,7 +51,19 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ title: "Home" }}
+        options={({ navigation }) => {
+          return {
+            title: "Home",
+            headerLeft: () => {
+              <Icon
+                name="home"
+                type="font-awesome"
+                icon-style={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+              />;
+            },
+          };
+        }}
       />
     </Stack.Navigator>
   );
