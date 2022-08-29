@@ -15,12 +15,6 @@ const screenOptions = {
   headerTintColor: "#fff",
   headerStyle: { backgroundColor: "#5637DD" },
 };
-const styles = StyleSheet.create({
-  stackIcon: {
-    width: 10,
-    margin: 10,
-  },
-});
 
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
@@ -81,19 +75,17 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }) => {
-          return {
-            title: "Home",
-            headerLeft: () => {
-              <Icon
-                name="home"
-                type="font-awesome"
-                icon-style={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-              />;
-            },
-          };
-        }}
+        options={({ navigation }) => ({
+          title: "Home",
+          headerLeft: () => {
+            <Icon
+              name="home"
+              type="font-awesome"
+              icon-style={styles.stackIcon}
+              onPress={() => navigation.toggleDrawer()}
+            />;
+          },
+        })}
       />
     </Stack.Navigator>
   );
@@ -167,5 +159,11 @@ const Main = () => {
     </View>
   );
 };
-
+const styles = StyleSheet.create({
+  stackIcon: {
+    marginLeft: 10,
+    color: "#fff",
+    fontSize: 24,
+  },
+});
 export default Main;
