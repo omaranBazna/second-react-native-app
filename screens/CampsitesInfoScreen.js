@@ -36,7 +36,7 @@ const CampsitesInfoScreen = ({ route }) => {
   const [comments, setComments] = useState(COMMENTS);
   return (
     <FlatList
-      data={comments.forEach((comment) => comment.campsiteId == campsite)}
+      data={comments.filter((comment) => comment.campsiteId === campsite.id)}
       renderItem={RenderCommentItem}
       keyExtractor={(item) => {
         item.id.toString();
@@ -47,8 +47,8 @@ const CampsitesInfoScreen = ({ route }) => {
       }}
       ListHeaderComponent={
         <>
-          <RenderCampsite render={campsite} />
-          <Text style={styles.commentsTitle} />
+          <RenderCampsite campsite={campsite} />
+          <Text style={styles.commentsTitle}>Comments</Text>
         </>
       }
     />
