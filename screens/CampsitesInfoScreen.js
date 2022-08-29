@@ -12,6 +12,11 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 30,
   },
+  commentItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#fff",
+  },
 });
 
 const RenderCommentItem = ({ item }) => {
