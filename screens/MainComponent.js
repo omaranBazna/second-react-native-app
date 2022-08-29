@@ -15,6 +15,12 @@ const screenOptions = {
   headerTintColor: "#fff",
   headerStyle: { backgroundColor: "#5637DD" },
 };
+const styles = StyleSheet.create({
+  stackIcon: {
+    width: 10,
+    margin: 10,
+  },
+});
 
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
@@ -24,7 +30,19 @@ const ContactNavigator = () => {
       <Stack.Screen
         name="Contact"
         component={ContactScreen}
-        options={{ title: "Contact us" }}
+        options={({ navigation }) => {
+          return {
+            title: "Contact us",
+            headerLeft: () => {
+              <Icon
+                name="address-card"
+                type="font-awesome"
+                icon-style={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+              />;
+            },
+          };
+        }}
       />
     </Stack.Navigator>
   );
@@ -38,7 +56,19 @@ const AboutNavigator = () => {
       <Stack.Screen
         name="About"
         component={AboutScreen}
-        options={{ title: "About us" }}
+        options={({ navigation }) => {
+          return {
+            title: "About",
+            headerLeft: () => {
+              <Icon
+                name="info-circle"
+                type="font-awesome"
+                icon-style={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+              />;
+            },
+          };
+        }}
       />
     </Stack.Navigator>
   );
