@@ -111,7 +111,7 @@ const DirectoryNavigator = () => {
             headerLeft: () => {
               return (
                 <Icon
-                  name="list-icon"
+                  name="list"
                   type="font-awesome"
                   iconStyle={styles.stackIcon}
                   onPress={() => navigation.toggleDrawer()}
@@ -146,24 +146,76 @@ const Main = () => {
         <Drawer.Screen
           name="Home"
           component={HomeNavigator}
-          options={{ title: "Home" }}
+          options={{
+            title: "Home",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="home"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
         ></Drawer.Screen>
         <Drawer.Screen
           name="Directory"
           component={DirectoryNavigator}
-          options={{ title: "Directory" }}
+          options={{
+            title: "Directory",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="list"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
         ></Drawer.Screen>
 
         <Drawer.Screen
           name="About"
           component={AboutNavigator}
-          options={{ title: "About" }}
+          options={{
+            title: "About",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="info"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
         ></Drawer.Screen>
 
         <Drawer.Screen
           name="Contact"
           component={ContactNavigator}
-          options={{ title: "Contact" }}
+          options={{
+            title: "Contact",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="address-card"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
         ></Drawer.Screen>
       </Drawer.Navigator>
     </View>
