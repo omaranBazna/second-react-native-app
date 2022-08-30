@@ -19,6 +19,16 @@ const campsitesSlice = createSlice({
   name: "campsites",
   initialState,
   reducers: {},
+  extraReducers:{
+    [fetchCampsite.pending]:(state)=>{
+        state.isLoading=true
+    },
+    [fetchCampsite.fulfilled]:(state,action)=>{
+        state.isLoading=false;
+        state.errorMess=null;
+        state.campsitesArr=action.payload;
+    }
+  }
 });
 
 export const campsitesReducer = campsitesSlice.reducer;
