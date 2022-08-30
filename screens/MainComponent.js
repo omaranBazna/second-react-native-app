@@ -20,6 +20,25 @@ const screenOptions = {
   headerStyle: { backgroundColor: "#5637DD" },
 };
 import logo from "../assets/images/logo.png";
+
+const CustomDrawerContent = (props) => {
+  return (
+    <DrawerContentScrollView {...props}>
+      <View style={styles.drawerHeader}>
+        <View style={{ flex: 1 }}>
+          <Image source={logo} style={styles.drawerImage} />
+        </View>
+        <View style={{ flex: 2 }}>
+          <Text style={styles.drawerHeaderText}>Nucampsite</Text>
+        </View>
+      </View>
+      <DrawerItemList
+        {...props}
+        labelStyle={{ fontWeight: "bold" }}
+      ></DrawerItemList>
+    </DrawerContentScrollView>
+  );
+};
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
 
@@ -145,6 +164,7 @@ const Main = () => {
     >
       <Drawer.Navigator
         initialRouteName="Home"
+        drawerContent={CustomDrawerContent}
         drawerStyle={{ backgroundColor: "#CEC8FF" }}
       >
         <Drawer.Screen
@@ -230,6 +250,24 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     color: "#fff",
     fontSize: 24,
+  },
+  drawerHeader: {
+    backgroundColor: "#5637DD",
+    height: 140,
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    flexDirection: "row",
+  },
+  drawerImage: {
+    margin: 10,
+    height: 60,
+    width: 60,
+  },
+  drawerHeader: {
+    backgroundColor: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 });
 export default Main;
