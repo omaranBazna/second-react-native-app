@@ -264,8 +264,8 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
   },
-  drawerHeader: {
-    backgroundColor: "#fff",
+  drawerHeaderText: {
+    color: "#fff",
     fontSize: 24,
     fontWeight: "bold",
   },
