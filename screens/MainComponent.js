@@ -1,12 +1,16 @@
 import DirectoryScreen from "./DirectoryScreen";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image, Text, Platform, View } from "react-native";
 import { Icon } from "react-native-elements";
 import CampsitesInfoScreen from "./CampsitesInfoScreen";
-import { Platform, View, Text } from "react-native";
+
 import Constants from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 import HomeScreen from "./HomeScreen";
 import ContactScreen from "./ContactScreen";
 import AboutScreen from "./AboutScreen";
@@ -15,7 +19,7 @@ const screenOptions = {
   headerTintColor: "#fff",
   headerStyle: { backgroundColor: "#5637DD" },
 };
-
+import logo from "../assets/images/logo.png";
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
 
