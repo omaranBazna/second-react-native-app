@@ -31,12 +31,23 @@ const AboutScreen = () => {
     return (
       <ScrollView>
         <Mission />
-
-        <Loading />
+        <Card>
+          <Card.Title>Community Partners</Card.Title>
+          <Card.Divider />
+          <Loading />
+        </Card>
       </ScrollView>
     );
   }
   if (partners.errMess) {
+    <ScrollView>
+      <Mission />
+      <Card>
+        <Card.Title>Community Partners</Card.Title>
+        <Card.Divider />
+        <Text>{partners.errMess}</Text>
+      </Card>
+    </ScrollView>;
   }
   return (
     <ScrollView>
