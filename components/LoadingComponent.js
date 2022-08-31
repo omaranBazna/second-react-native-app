@@ -1,4 +1,4 @@
-import { ActivityIndicator, StylesSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 const Loading = () => {
   return (
     <View style={styles.loadingView}>
@@ -8,7 +8,7 @@ const Loading = () => {
   );
 };
 
-const styles = StylesSheet.create({
+const styles = StyleSheet.create({
   loadingView: {
     alignItems: "center",
     justifyContent: "center",
