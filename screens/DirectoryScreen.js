@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import { Avatar, ListItem } from "react-native-elements";
 import { useState } from "react";
 import { CAMPSITES } from "../shared/campsites";
@@ -6,6 +6,8 @@ import { CAMPSITES } from "../shared/campsites";
 import { baseUrl } from "../shared/baseUrl";
 import Loading from "../components/LoadingComponent";
 import { useSelector } from "react-redux";
+import logo from "../assets/images/logo.png";
+
 const DirectoryScreen = ({ navigation }) => {
   const campsites = useSelector((state) => state.campsites);
 
@@ -25,7 +27,7 @@ const DirectoryScreen = ({ navigation }) => {
       <ListItem
         onPress={() => navigation.navigate("CampsiteInfo", { campsite })}
       >
-        <Avatar source={campsite.image} rounded />
+        <Avatar source={{ uri: baseUrl + campsite.image }} rounded />
         <ListItem.Content>
           <ListItem.Title>{campsite.name}</ListItem.Title>
           <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>

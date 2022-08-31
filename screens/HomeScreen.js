@@ -33,6 +33,7 @@ const HomeScreen = () => {
   const campsites = useSelector((state) => state.campsites);
   const promotions = useSelector((state) => state.promotions);
   const partners = useSelector((state) => state.partners);
+
   const featCampsite = campsites.campsitesArr.find(
     (campsite) => campsite.featured
   );
@@ -42,6 +43,11 @@ const HomeScreen = () => {
   const featPartner = partners.partnersArr.find(
     (campsite) => campsite.featured
   );
+  const isLoading = campsites.isLoading;
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <ScrollView>
       <Text>Home Screen</Text>
