@@ -2,7 +2,7 @@ import { createSlice ,createAsyncThunk} from "@reduxjs/toolkit";
 import { baseUrl } from "../../shared/baseURL";
 
 
-export const fetchCampsite=createAsyncThunk(
+export const fetchCampsites=createAsyncThunk(
     'campsites/fetchCampsites',
     async =()=>{
      const response =await fetch (baseUrl +"campsites") 
@@ -20,13 +20,18 @@ const campsitesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers:{
-    [fetchCampsite.pending]:(state)=>{
+    [fetchCampsites.pending]:(state)=>{
         state.isLoading=true
     },
     [fetchCampsite.fulfilled]:(state,action)=>{
         state.isLoading=false;
         state.errorMess=null;
         state.campsitesArr=action.payload;
+    },
+    [fetchCampsites.rejected]:(state,action)=>{
+        state.isLoading;
+        state.errorMess=action.payload.error?action.payload.error:"rejected"
+        
     }
   }
 });
