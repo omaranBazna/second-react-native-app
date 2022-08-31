@@ -3,8 +3,23 @@ import { Avatar, ListItem } from "react-native-elements";
 import { useState } from "react";
 import { CAMPSITES } from "../shared/campsites";
 
+import { baseUrl } from "../shared/baseUrl";
+import Loading from "../components/LoadingComponent";
+import { useSelector } from "react-redux";
 const DirectoryScreen = ({ navigation }) => {
-  const [campsites, setCampsites] = useState(CAMPSITES);
+  const campsites = useSelector((state) => state.campsites);
+
+  if (campsites.isLoading) {
+    return <Loading />;
+  }
+
+  if (campsites.errMess) {
+    return (
+      <View>
+        <Text>{campsites.errMess}</Text>
+      </View>
+    );
+  }
   const renderDirectoryItem = ({ item: campsite }) => {
     return (
       <ListItem
@@ -20,7 +35,7 @@ const DirectoryScreen = ({ navigation }) => {
   };
   return (
     <FlatList
-      data={campsites}
+      data={campsites.campsitesArr}
       renderItem={renderDirectoryItem}
       keyExtractor={(item) => item.id.toString()}
     />
