@@ -1,38 +1,15 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { baseUrl } from "../../shared/baseUrl";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const fetchCampsites = createAsyncThunk(
-  "campsites/fetchCampsites",
-  async () => {
-    const response = await fetch(baseUrl + "campsites");
-
-    return response.json();
-  }
-);
-const initialState = {
-  isLoading: true,
-  errMess: null,
-  campsitesArr: [],
-};
-
-const campsitesSlice = createSlice({
-  name: "campsites",
-  initialState,
-  reducers: {},
-  extraReducers: {
-    [fetchCampsites.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [fetchCampsites.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.errMess = null;
-      state.campsitesArr = action.payload;
-    },
-    [fetchCampsites.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.errMess = action.error ? action.error.message : "rejected";
+const favoritesSlice = createSlice({
+  name: "favorites",
+  initialState: [],
+  reducers: {
+    toggleFavorite: (favorites, action) => {
+      if (favorites.includes(action.payload)) {
+        return favorites.filter((campsite) => campsite != action.payload);
+      } else {
+        favorites.push(action.payload);
+      }
     },
   },
 });
-
-export const campsitesReducer = campsitesSlice.reducer;
