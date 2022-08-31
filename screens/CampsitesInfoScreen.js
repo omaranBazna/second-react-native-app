@@ -35,8 +35,8 @@ const RenderCommentItem = ({ item }) => {
 const CampsitesInfoScreen = ({ route }) => {
   const { campsite } = route.params;
   const comments = useSelector((state) => state.comments);
-
-  const [favorite, setFavorite] = useState(false);
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
   return (
     <FlatList
       data={comments.commentsArr.filter(
@@ -54,9 +54,9 @@ const CampsitesInfoScreen = ({ route }) => {
         <>
           <RenderCampsite
             campsite={campsite}
-            isFavorite={favorite}
+            isFavorite={favorites.includes(campsite.id)}
             markFavorite={() => {
-              setFavorite(true);
+              dispatch(toggleFavorite(campsite.id));
             }}
           />
           <Text style={styles.commentsTitle}>Comments</Text>
