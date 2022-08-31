@@ -5,6 +5,8 @@ import { PARTNERS } from "../shared/partners";
 import { Avatar, ListItem } from "react-native-elements";
 import { Card } from "react-native-elements";
 import { Text } from "react-native";
+import Loading from "../components/LoadingComponent";
+import { useSelector } from "react-redux";
 const Mission = () => {
   return (
     <Card>
@@ -23,7 +25,19 @@ const Mission = () => {
   );
 };
 const AboutScreen = () => {
-  const [partners, setPartners] = useState(PARTNERS);
+  const partners = useSelector((state) => state.partners);
+
+  if (partners.isLoading) {
+    return (
+      <ScrollView>
+        <Mission />
+
+        <Loading />
+      </ScrollView>
+    );
+  }
+  if (partners.errMess) {
+  }
   return (
     <ScrollView>
       <Mission />
@@ -31,7 +45,7 @@ const AboutScreen = () => {
       <Card>
         <Card.Title>Community Partners</Card.Title>
         <Card.Divider />
-        {partners.map((partner) => {
+        {partners.partnersArr.map((partner) => {
           return (
             <ListItem key={partner.id}>
               <Avatar source={partner.image} rounded />

@@ -3,7 +3,7 @@ const Loading = () => {
   return (
     <View style={styles.loadingView}>
       <ActivityIndicator size="large" color="#5637DD"></ActivityIndicator>
-      <Text style={styles.loadingText}></Text>
+      <Text style={styles.loadingText}>Loading</Text>
     </View>
   );
 };

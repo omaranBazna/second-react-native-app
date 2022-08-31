@@ -10,7 +10,7 @@ export const fetchPartners = createAsyncThunk(
 );
 const initialState = {
   isLoading: true,
-  errorMess: null,
+  errMess: null,
   partnersArr: [],
 };
 
@@ -24,12 +24,12 @@ const partnersSlice = createSlice({
     },
     [fetchPartners.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.errorMess = null;
+      state.errMess = null;
       state.partnersArr = action.payload;
     },
     [fetchPartners.rejected]: (state, action) => {
       state.isLoading;
-      state.errorMess = action.error ? action.error.message : "rejected";
+      state.errMess = action.error ? action.error.message : "rejected";
     },
   },
 });

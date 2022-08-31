@@ -11,7 +11,7 @@ export const fetchCampsites = createAsyncThunk(
 );
 const initialState = {
   isLoading: true,
-  errorMess: null,
+  errMess: null,
   campsitesArr: [],
 };
 
@@ -25,12 +25,12 @@ const campsitesSlice = createSlice({
     },
     [fetchCampsites.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.errorMess = null;
+      state.errMess = null;
       state.campsitesArr = action.payload;
     },
     [fetchCampsites.rejected]: (state, action) => {
       state.isLoading;
-      state.errorMess = action.error ? action.error.message : "rejected";
+      state.errMess = action.error ? action.error.message : "rejected";
     },
   },
 });

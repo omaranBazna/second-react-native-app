@@ -10,7 +10,7 @@ export const fetchPromotions = createAsyncThunk(
 );
 const initialState = {
   isLoading: true,
-  errorMess: null,
+  errMess: null,
   promotionsArr: [],
 };
 
@@ -24,12 +24,12 @@ const promotionsSlice = createSlice({
     },
     [fetchPromotions.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.errorMess = null;
+      state.errMess = null;
       state.promotionsArr = action.payload;
     },
     [fetchPromotions.rejected]: (state, action) => {
       state.isLoading;
-      state.errorMess = action.error ? action.error.message : "rejected";
+      state.errMess = action.error ? action.error.message : "rejected";
     },
   },
 });

@@ -10,7 +10,7 @@ export const fetchComments = createAsyncThunk(
 );
 const initialState = {
   isLoading: true,
-  errorMess: null,
+  errMess: null,
   commentsArr: [],
 };
 
@@ -24,12 +24,12 @@ const commentsSlice = createSlice({
     },
     [fetchComments.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.errorMess = null;
+      state.errMess = null;
       state.commentsArr = action.payload;
     },
     [fetchComments.rejected]: (state, action) => {
       state.isLoading;
-      state.errorMess = action.error ? action.error.message : "rejected";
+      state.errMess = action.error ? action.error.message : "rejected";
     },
   },
 });
