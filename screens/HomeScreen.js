@@ -8,7 +8,7 @@ const FeaturedItem = ({ item }) => {
   if (item) {
     return (
       <Card containerStyle={{ padding: 0 }}>
-        <Card.Image source={item.Image}>
+        <Card.Image source={{ uri: baseUrl + item.image }}>
           <View style={{ justifyContent: "center", flex: 1 }}>
             <Text
               style={{
@@ -31,9 +31,15 @@ const HomeScreen = () => {
   const campsites = useSelector((state) => state.campsites);
   const promotions = useSelector((state) => state.promotions);
   const partners = useSelector((state) => state.partners);
-  const featCampsite = campsites.find((campsite) => campsite.featured);
-  const featPromotion = promotions.find((campsite) => campsite.featured);
-  const featPartner = partners.find((campsite) => campsite.featured);
+  const featCampsite = campsites.campsitesArr.find(
+    (campsite) => campsite.featured
+  );
+  const featPromotion = promotions.promotionsArr.find(
+    (campsite) => campsite.featured
+  );
+  const featPartner = partners.partnersArr.find(
+    (campsite) => campsite.featured
+  );
   return (
     <ScrollView>
       <Text>Home Screen</Text>
