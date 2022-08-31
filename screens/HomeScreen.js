@@ -1,11 +1,9 @@
 import { Text, View, ScrollView } from "react-native";
 import React from "react";
-import { useState } from "react";
-import { CAMPSITES } from "../shared/campsites";
-import { PROMOTIONS } from "../shared/promotions";
-import { PARTNERS } from "../shared/partners";
 import { Card } from "react-native-elements";
 
+import { useSelector } from "react-redux";
+import { baseUrl } from "../shared/baseURL";
 const FeaturedItem = ({ item }) => {
   if (item) {
     return (
@@ -30,10 +28,9 @@ const FeaturedItem = ({ item }) => {
   return <View />;
 };
 const HomeScreen = () => {
-  const [campsites, setCampsites] = useState(CAMPSITES);
-  const [promotions, setPromotions] = useState(PROMOTIONS);
-  const [partners, setPartners] = useState(PARTNERS);
-
+  const campsites = useSelector((state) => state.campsites);
+  const promotions = useSelector((state) => state.promotions);
+  const partners = useSelector((state) => state.partners);
   const featCampsite = campsites.find((campsite) => campsite.featured);
   const featPromotion = promotions.find((campsite) => campsite.featured);
   const featPartner = partners.find((campsite) => campsite.featured);
