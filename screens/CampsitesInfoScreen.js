@@ -1,7 +1,8 @@
 import RenderCampsite from "../features/campsites/RenderCampsite";
 import { useSelector } from "react-redux";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { COMMENTS } from "../shared/comments";
+import { useDispatch } from "react-redux";
+import { toggleFavorite } from "../features/favorites/favoritesSlice";
 const styles = StyleSheet.create({
   commentsTitle: {
     textAlign: "center",
