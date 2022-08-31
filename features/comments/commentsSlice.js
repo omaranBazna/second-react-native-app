@@ -3,9 +3,9 @@ import { baseUrl } from "../../shared/baseURL";
 
 
 export const fetchComments=createAsyncThunk(
-    'campsites/fetchComments',
+    'comments/fetchComments',
     async =()=>{
-     const response =await fetch (baseUrl +"campsites") 
+     const response =await fetch (baseUrl +"comments") 
      return response.json()
     } 
 )
@@ -15,20 +15,20 @@ const initialState = {
  commentsArr:[]
 };
 
-const campsitesSlice = createSlice({
+const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {},
   extraReducers:{
-    [fetchCampsites.pending]:(state)=>{
+    [fetchComments.pending]:(state)=>{
         state.isLoading=true
     },
-    [fetchCampsite.fulfilled]:(state,action)=>{
+    [fetchComments.fulfilled]:(state,action)=>{
         state.isLoading=false;
         state.errorMess=null;
         state.commentsArr=action.payload;
     },
-    [fetchCampsites.rejected]:(state,action)=>{
+    [fetchComments.rejected]:(state,action)=>{
         state.isLoading;
         state.errorMess=action.error?action.error.message:"rejected"
         
@@ -36,4 +36,4 @@ const campsitesSlice = createSlice({
   }
 });
 
-export const campsitesReducer = campsitesSlice.reducer;
+export const commentsReducer = commentsSlice.reducer;

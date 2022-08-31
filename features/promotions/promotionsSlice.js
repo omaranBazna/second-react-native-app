@@ -2,33 +2,33 @@ import { createSlice ,createAsyncThunk} from "@reduxjs/toolkit";
 import { baseUrl } from "../../shared/baseURL";
 
 
-export const fetchCampsites=createAsyncThunk(
-    'campsites/fetchCampsites',
+export const fetchPromotions=createAsyncThunk(
+    'promotions/fetchPromotions',
     async =()=>{
-     const response =await fetch (baseUrl +"campsites") 
+     const response =await fetch (baseUrl +"promotions") 
      return response.json()
     } 
 )
 const initialState = {
  isLoading:true,
  errorMess:null,
- campsitesArr:[]
+promotionsArr:[]
 };
 
-const campsitesSlice = createSlice({
-  name: "campsites",
+const promotionsSlice = createSlice({
+  name: "promotions",
   initialState,
   reducers: {},
   extraReducers:{
-    [fetchCampsites.pending]:(state)=>{
+    [fetchPromotions.pending]:(state)=>{
         state.isLoading=true
     },
-    [fetchCampsites.fulfilled]:(state,action)=>{
+    [fetchPromotions.fulfilled]:(state,action)=>{
         state.isLoading=false;
         state.errorMess=null;
-        state.campsitesArr=action.payload;
+        state.promotionsArr=action.payload;
     },
-    [fetchCampsites.rejected]:(state,action)=>{
+    [fetchPromotions.rejected]:(state,action)=>{
         state.isLoading;
         state.errorMess=action.error?action.error.message:"rejected"
         
@@ -36,4 +36,4 @@ const campsitesSlice = createSlice({
   }
 });
 
-export const campsitesReducer = campsitesSlice.reducer;
+export const promotionsReducer = promotionsSlice.reducer;
