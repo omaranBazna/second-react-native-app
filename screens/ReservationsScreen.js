@@ -43,6 +43,17 @@ const ReservationsScreen = () => {
           <Picker.Item label="6" value={6} />
         </Picker>
       </View>
+      <View style={styles.formRow}>
+        <Text style={styles.formLabel}>Hike In?</Text>
+        <Switch
+          style={styles.formItem}
+          value={hikeIn}
+          trackColor={{ true: "#563700", false: null }}
+          onValueChange={(value) => {
+            setHikeIn(value);
+          }}
+        ></Switch>
+      </View>
     </ScrollView>
   );
 };
