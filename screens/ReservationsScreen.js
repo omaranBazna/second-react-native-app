@@ -15,6 +15,17 @@ const ReservationsScreen = () => {
   const [hikeIn, setHikeIn] = useState(false);
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
+
+  const handelReservation = () => {
+    console.log("campers", campers);
+    console.log("Hikein", hikeIn);
+    console.log("date", date);
+    console.log("show Calender", showCalendar);
+    setCampers(1);
+    setHikeIn(false);
+    setDate(new Date());
+    setShowCalendar(false);
+  };
   return <div></div>;
 };
 
