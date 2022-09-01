@@ -26,7 +26,14 @@ const ReservationsScreen = () => {
     setDate(new Date());
     setShowCalendar(false);
   };
-  return <div></div>;
+  return (
+    <ScrollView>
+      <View style={styles.formRow}></View>
+    </ScrollView>
+  );
 };
 
+const styles = StyleSheet.create({
+  formRow: {},
+});
 export default ReservationsScreen;
