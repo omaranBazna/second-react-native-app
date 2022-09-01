@@ -14,6 +14,7 @@ import {
 import HomeScreen from "./HomeScreen";
 import ContactScreen from "./ContactScreen";
 import AboutScreen from "./AboutScreen";
+import ReservationsScreen from "./ReservationsScreen";
 
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -46,6 +47,35 @@ const CustomDrawerContent = (props) => {
     </DrawerContentScrollView>
   );
 };
+
+const ReservationNavigator = () => {
+  const Stack = createStackNavigator();
+
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Reservation"
+        component={ReservationsScreen}
+        options={({ navigation }) => {
+          return {
+            title: "Reserve form",
+            headerLeft: () => {
+              return (
+                <Icon
+                  name="address-card"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
+            },
+          };
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
 
@@ -242,6 +272,25 @@ const Main = () => {
           component={ContactNavigator}
           options={{
             title: "Contact",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="address-card"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
+        ></Drawer.Screen>
+
+        <Drawer.Screen
+          name="Reservation"
+          component={ReservationNavigator}
+          options={{
+            title: "Reservation",
             drawerIcon: () => {
               return (
                 <Icon
