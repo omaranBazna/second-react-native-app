@@ -58,11 +58,11 @@ const ReservationNavigator = () => {
         component={ReservationsScreen}
         options={({ navigation }) => {
           return {
-            title: "Reserve form",
+            title: "Reservation Search",
             headerLeft: () => {
               return (
                 <Icon
-                  name="address-card"
+                  name="tree"
                   type="font-awesome"
                   iconStyle={styles.stackIcon}
                   onPress={() => navigation.toggleDrawer()}
@@ -247,7 +247,24 @@ const Main = () => {
             },
           }}
         ></Drawer.Screen>
-
+        <Drawer.Screen
+          name="ReserveCampsite"
+          component={ReservationNavigator}
+          options={{
+            title: "Reserve Campsite",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="tree"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
+        ></Drawer.Screen>
         <Drawer.Screen
           name="About"
           component={AboutNavigator}
@@ -272,25 +289,6 @@ const Main = () => {
           component={ContactNavigator}
           options={{
             title: "Contact",
-            drawerIcon: () => {
-              return (
-                <Icon
-                  name="address-card"
-                  type="font-awesome"
-                  size={24}
-                  iconStyle={{ width: 24 }}
-                  color={"white"}
-                />
-              );
-            },
-          }}
-        ></Drawer.Screen>
-
-        <Drawer.Screen
-          name="Reservation"
-          component={ReservationNavigator}
-          options={{
-            title: "Reservation",
             drawerIcon: () => {
               return (
                 <Icon

@@ -54,7 +54,7 @@ const ReservationsScreen = () => {
         <Switch
           style={styles.formItem}
           value={hikeIn}
-          trackColor={{ true: "#563700", false: null }}
+          trackColor={{ true: "#5637DD", false: null }}
           onValueChange={(value) => {
             setHikeIn(value);
           }}
@@ -67,7 +67,7 @@ const ReservationsScreen = () => {
             setShowCalendar(true);
           }}
           title={date.toLocaleDateString("en-US")}
-          color="#563700"
+          color="#5637DD"
           accessibilityLabel="Tap me to select a reservation date"
         />
       </View>
@@ -86,7 +86,7 @@ const ReservationsScreen = () => {
         <Button
           title="Search Availability "
           onPress={handelReservation}
-          color="#563700"
+          color="#5637DD"
           accessibilityLabel="Tap me to confirm availability "
         />
       </View>
