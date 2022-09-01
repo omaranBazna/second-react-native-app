@@ -81,6 +81,10 @@ const ReservationsScreen = () => {
           onChange={onDateChange}
         ></DateTimePicker>
       )}
+
+      <View style={styles.formRow}>
+        <Button title={"conform"} />
+      </View>
     </ScrollView>
   );
 };
