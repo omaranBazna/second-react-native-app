@@ -54,6 +54,27 @@ const ReservationsScreen = () => {
           }}
         ></Switch>
       </View>
+      <View style={styles.formRow}>
+        <Text style={styles.formLabel}>Date:</Text>
+        <Button
+          onPress={() => {
+            setShowCalendar(true);
+          }}
+          title={date.toLocaleDateString("en-US")}
+          color="#563700"
+          accessibilityLabel="Tap me to select a reservation date"
+        />
+      </View>
+
+      {showCalendar && (
+        <DateTimePicker
+          style={styles.formItem}
+          value={date}
+          mode="date"
+          display="default"
+          onChange={onDateChange}
+        ></DateTimePicker>
+      )}
     </ScrollView>
   );
 };
