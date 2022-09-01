@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Switch,
   Button,
+  Platform,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -16,6 +17,11 @@ const ReservationsScreen = () => {
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
 
+  const onDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowCalendar(Platform.OS == "ios");
+    setDate(currentDate);
+  };
   const handelReservation = () => {
     console.log("campers", campers);
     console.log("Hikein", hikeIn);
