@@ -84,7 +84,12 @@ const CampsitesInfoScreen = ({ route }) => {
         }
       />
       {showModal && (
-        <Modal>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={showModal}
+          onRequestClose={() => setShowModal(!showModal)}
+        >
           <View style={styles.modal}>
             <Rating
               startingValue={rating}
