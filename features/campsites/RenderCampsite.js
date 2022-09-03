@@ -53,6 +53,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: 20,
   },
+  cardText: {
+    textShadowColor: "rgba(0, 0, 0, 1)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 20,
+    textAlign: "center",
+    color: "white",
+    fontSize: 20,
+  },
 });
 
 export default RenderCampsite;
