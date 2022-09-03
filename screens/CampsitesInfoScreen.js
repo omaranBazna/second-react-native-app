@@ -104,7 +104,17 @@ const CampsitesInfoScreen = ({ route }) => {
             ></Input>
             <View style={{ margin: 10 }}>
               <Button
-                onPress={() => setShowModal(!showModal)}
+                color="#5637DD"
+                title="Submit"
+                onPress={() => handleSubmit()}
+              />
+            </View>
+            <View style={{ margin: 10 }}>
+              <Button
+                onPress={() => {
+                  setShowModal(!showModal);
+                  resetForm();
+                }}
                 color="#808080"
                 title="Cancel"
               />
