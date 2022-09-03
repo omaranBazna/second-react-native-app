@@ -8,6 +8,19 @@ export const fetchComments = createAsyncThunk(
     return response.json();
   }
 );
+export const postComment = createAsyncThunk(
+  "comments/postComment",
+  async (payload, { dispatch, getState }) => {
+    setTimeout(() => {
+      const { comments } = getState();
+
+      const d = new Date();
+      payload.date = d.toISOString();
+      payload.id = state.commentsArr.length;
+    }, 2000);
+  }
+);
+
 const initialState = {
   isLoading: true,
   errMess: null,
