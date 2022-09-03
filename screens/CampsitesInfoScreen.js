@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
+import { Button, Modal, View } from "react-native";
+import { useState } from "react";
 const styles = StyleSheet.create({
   commentsTitle: {
     textAlign: "center",

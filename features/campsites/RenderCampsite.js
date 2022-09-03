@@ -25,6 +25,15 @@ const RenderCampsite = ({ campsite, isFavorite, markFavorite }) => {
           raised
           reverse
         />
+
+        <Icon
+          onPress={() => props.onShowModal()}
+          name={"pencil"}
+          type="font-awesome"
+          color="#5637DD"
+          raised
+          reverse
+        />
       </Card>
     );
   }
