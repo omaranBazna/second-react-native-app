@@ -38,6 +38,9 @@ const CampsitesInfoScreen = ({ route }) => {
   const { campsite } = route.params;
   const comments = useSelector((state) => state.comments);
   const favorites = useSelector((state) => state.favorites);
+
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
   return (
     <FlatList
