@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { Button, Modal } from "react-native";
 import { useState } from "react";
+import { Input, Rating } from "react-native-elements";
 
 const handleSubmit = () => {
   const newComment = {
@@ -76,7 +77,11 @@ const CampsitesInfoScreen = ({ route }) => {
       {showModal && (
         <Modal>
           <View style={styles.modal}>
-            <View style={{ margin: 10 }}></View>
+            <View style={{ margin: 10 }}>
+              <Rating />
+              <Input></Input>
+              <Input></Input>
+            </View>
 
             <Button
               onPress={() => setShowModal(!showModal)}
