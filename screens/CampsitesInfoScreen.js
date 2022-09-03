@@ -34,6 +34,12 @@ const CampsitesInfoScreen = ({ route }) => {
       <View style={styles.commentItem}>
         <Text style={{ fontSize: 14 }}>{item.text}</Text>
         <Text style={{ fontSize: 12 }}>{item.rating} Stars</Text>
+        <Rating
+          startingValue={item.rating}
+          imageSize={10}
+          readonly
+          style={{ alignItems: "flex-start", paddingVertical: "5%" }}
+        />
         <Text style={{ fontSize: 12 }}>
           -- {item.author} , {item.date}
         </Text>
