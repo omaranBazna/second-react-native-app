@@ -84,8 +84,16 @@ const CampsitesInfoScreen = ({ route }) => {
               onFinishRating={(rating) => setRating(rating)}
               style={{ paddingVertical: 10 }}
             />
-            <Input></Input>
-            <Input></Input>
+            <Input
+              placeholder="your name"
+              leftIcon={{ type: "font-awesome", name: "user-o" }}
+              leftIconContainerStyle={{ paddingRight: 10 }}
+            ></Input>
+            <Input
+              placeholder="your comment"
+              leftIcon={{ type: "font-awesome", name: "comment-o" }}
+              leftIconContainerStyle={{ paddingRight: 10 }}
+            ></Input>
             <View style={{ margin: 10 }}>
               <Button
                 onPress={() => setShowModal(!showModal)}
