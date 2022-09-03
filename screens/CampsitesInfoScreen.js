@@ -7,35 +7,6 @@ import { Button, Modal } from "react-native";
 import { useState } from "react";
 import { Input, Rating } from "react-native-elements";
 
-const handleSubmit = () => {
-  const newComment = {
-    author,
-    rating,
-    text,
-    campsiteId: campsite.id,
-  };
-  console.log(newComment);
-  setShowModal(!showModal);
-  resetForm();
-};
-
-const resetForm = () => {
-  setRating(5);
-  setAuthor("");
-  setText("");
-};
-const RenderCommentItem = ({ item }) => {
-  return (
-    <View style={styles.commentItem}>
-      <Text style={{ fontSize: 14 }}>{item.text}</Text>
-      <Text style={{ fontSize: 12 }}>{item.rating} Stars</Text>
-      <Text style={{ fontSize: 12 }}>
-        -- {item.author} , {item.date}
-      </Text>
-    </View>
-  );
-};
-
 const CampsitesInfoScreen = ({ route }) => {
   const { campsite } = route.params;
   const comments = useSelector((state) => state.comments);
@@ -46,6 +17,36 @@ const CampsitesInfoScreen = ({ route }) => {
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
   const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    const newComment = {
+      author,
+      rating,
+      text,
+      campsiteId: campsite.id,
+    };
+    console.log(newComment);
+    setShowModal(!showModal);
+    resetForm();
+  };
+  const RenderCommentItem = ({ item }) => {
+    return (
+      <View style={styles.commentItem}>
+        <Text style={{ fontSize: 14 }}>{item.text}</Text>
+        <Text style={{ fontSize: 12 }}>{item.rating} Stars</Text>
+        <Text style={{ fontSize: 12 }}>
+          -- {item.author} , {item.date}
+        </Text>
+      </View>
+    );
+  };
+
+  const resetForm = () => {
+    setRating(5);
+    setAuthor("");
+    setText("");
+  };
+
   return (
     <>
       <FlatList
@@ -125,6 +126,7 @@ const CampsitesInfoScreen = ({ route }) => {
     </>
   );
 };
+
 const styles = StyleSheet.create({
   commentsTitle: {
     textAlign: "center",
