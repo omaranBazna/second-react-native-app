@@ -24,7 +24,9 @@ const CampsitesInfoScreen = ({ route }) => {
   const favorites = useSelector((state) => state.favorites);
 
   const [showModal, setShowModal] = useState(false);
-
+  const [rating, setRating] = useState(5);
+  const [author, setAuthor] = useState("");
+  const [text, setText] = useState("");
   const dispatch = useDispatch();
   return (
     <>
