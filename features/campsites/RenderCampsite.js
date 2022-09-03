@@ -2,7 +2,12 @@ import { View, Text } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { StyleSheet } from "react-native";
 import { baseUrl } from "../../shared/baseUrl";
-const RenderCampsite = ({ campsite, isFavorite, markFavorite }) => {
+const RenderCampsite = ({
+  campsite,
+  isFavorite,
+  markFavorite,
+  onShowModal,
+}) => {
   if (campsite) {
     return (
       <Card containerStyle={{ padding: 0 }}>
@@ -26,7 +31,7 @@ const RenderCampsite = ({ campsite, isFavorite, markFavorite }) => {
           />
 
           <Icon
-            onPress={() => props.onShowModal()}
+            onPress={() => onShowModal()}
             name={"pencil"}
             type="font-awesome"
             color="#5637DD"

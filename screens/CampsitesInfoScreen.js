@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
-import { Button, Modal, View } from "react-native";
+import { Button, Modal } from "react-native";
 import { useState } from "react";
 
 const RenderCommentItem = ({ item }) => {
@@ -54,17 +54,19 @@ const CampsitesInfoScreen = ({ route }) => {
           </>
         }
       />
-      <Modal>
-        <View style={styles.modal}>
-          <View style={{ margin: 10 }}></View>
+      {showModal && (
+        <Modal>
+          <View style={styles.modal}>
+            <View style={{ margin: 10 }}></View>
 
-          <Button
-            onPress={() => setShowModal(!showModal)}
-            color="#808080"
-            title="Cancel"
-          />
-        </View>
-      </Modal>
+            <Button
+              onPress={() => setShowModal(!showModal)}
+              color="#808080"
+              title="Cancel"
+            />
+          </View>
+        </Modal>
+      )}
     </>
   );
 };
