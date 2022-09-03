@@ -17,7 +17,7 @@ const ReservationsScreen = () => {
   const [hikeIn, setHikeIn] = useState(false);
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
   const onDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShowCalendar(Platform.OS == "ios");
@@ -28,6 +28,10 @@ const ReservationsScreen = () => {
     console.log("Hikein", hikeIn);
     console.log("date", date);
     console.log("show Calender", showCalendar);
+
+    setShowModal(true);
+  };
+  const resetForm = () => {
     setCampers(1);
     setHikeIn(false);
     setDate(new Date());
