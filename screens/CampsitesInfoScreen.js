@@ -6,6 +6,23 @@ import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { Button, Modal } from "react-native";
 import { useState } from "react";
 
+const handleSubmit = () => {
+  const newComment = {
+    author,
+    rating,
+    text,
+    campsiteId: campsite.id,
+  };
+  console.log(newComment);
+  setShowModal(!showModal);
+  resetForm();
+};
+
+const resetForm = () => {
+  setRating(5);
+  setAuthor("");
+  setText("");
+};
 const RenderCommentItem = ({ item }) => {
   return (
     <View style={styles.commentItem}>
