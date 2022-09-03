@@ -46,6 +46,13 @@ const styles = StyleSheet.create({
     margin: 0,
     marginBottom: 20,
   },
+  cardRow: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    flexDirection: "row",
+    margin: 20,
+  },
 });
 
 export default RenderCampsite;
