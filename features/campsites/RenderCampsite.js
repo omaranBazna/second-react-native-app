@@ -8,32 +8,32 @@ const RenderCampsite = ({ campsite, isFavorite, markFavorite }) => {
       <Card containerStyle={{ padding: 0 }}>
         <Card.Image source={{ uri: baseUrl + campsite.image }}>
           <View style={{ justifyContent: "center", flex: 1 }}>
-            <Text style={{ color: "white", textAlign: "center", fontSize: 20 }}>
-              {campsite.name}
-            </Text>
+            <Text style={styles.Card}>{campsite.name}</Text>
           </View>
         </Card.Image>
         <Text style={{ margin: 20 }}>{campsite.description}</Text>
-        <Icon
-          onPress={() => {
-            console.log("test");
-            markFavorite();
-          }}
-          name={isFavorite ? "heart" : "heart-o"}
-          type="font-awesome"
-          color="#f50"
-          raised
-          reverse
-        />
+        <View style={styles.cardRow}>
+          <Icon
+            onPress={() => {
+              console.log("test");
+              markFavorite();
+            }}
+            name={isFavorite ? "heart" : "heart-o"}
+            type="font-awesome"
+            color="#f50"
+            raised
+            reverse
+          />
 
-        <Icon
-          onPress={() => props.onShowModal()}
-          name={"pencil"}
-          type="font-awesome"
-          color="#5637DD"
-          raised
-          reverse
-        />
+          <Icon
+            onPress={() => props.onShowModal()}
+            name={"pencil"}
+            type="font-awesome"
+            color="#5637DD"
+            raised
+            reverse
+          />
+        </View>
       </Card>
     );
   }
