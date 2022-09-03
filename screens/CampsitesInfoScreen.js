@@ -77,17 +77,16 @@ const CampsitesInfoScreen = ({ route }) => {
       {showModal && (
         <Modal>
           <View style={styles.modal}>
+            <Rating />
+            <Input></Input>
+            <Input></Input>
             <View style={{ margin: 10 }}>
-              <Rating />
-              <Input></Input>
-              <Input></Input>
+              <Button
+                onPress={() => setShowModal(!showModal)}
+                color="#808080"
+                title="Cancel"
+              />
             </View>
-
-            <Button
-              onPress={() => setShowModal(!showModal)}
-              color="#808080"
-              title="Cancel"
-            />
           </View>
         </Modal>
       )}
