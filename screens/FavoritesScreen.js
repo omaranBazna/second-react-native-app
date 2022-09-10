@@ -1,11 +1,17 @@
-import { useSelector } from "react-redux";
-import { View, FlatList, Text } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  View,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
 import { Avatar, ListItem } from "react-native-elements";
 
 import Loading from "../components/LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-
+import { SwipeRow } from "react-native-swipe-list-view";
 import React from "react";
 
 const FavoritesScreen = ({ navigation }) => {
