@@ -42,7 +42,6 @@ const HomeScreen = () => {
     duration: 1500,
     useNativeDriver: true,
   });
-
   const featCampsite = campsites.campsitesArr.find(
     (campsite) => campsite.featured
   );
@@ -53,14 +52,10 @@ const HomeScreen = () => {
     (campsite) => campsite.featured
   );
   const isLoading = campsites.isLoading;
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
   useEffect(() => {
     scaleAnimation.start();
   }, []);
+
   return (
     <Animated.ScrollView style={{ transform: [{ scale: scaleValue }] }}>
       <Text>Home Screen</Text>
