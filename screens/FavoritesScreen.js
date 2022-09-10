@@ -13,30 +13,32 @@ import Loading from "../components/LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { SwipeRow } from "react-native-swipe-list-view";
 import React from "react";
-
+import { toggleFavorite } from "../features/favorites/favoritesSlice";
 const FavoritesScreen = ({ navigation }) => {
   const { campsitesArr, isLoading, errMess } = useSelector(
     (state) => state.campsites
   );
   const favorites = useSelector((state) => state.favorites);
-
+  const dispatch = useDispatch();
   const renderFavoriteItem = ({ item: campsite }) => {
     return (
-      <ListItem
-        onPress={() =>
-          navigation.navigate("Directory", {
-            screen: "CampsiteInfo",
-            params: { campsite },
-          })
-        }
-      >
-        <Avatar rounded source={{ uri: baseUrl + campsite.image }} />
+      <SwipeRow rightOpenValue={-100}>
+        <ListItem
+          onPress={() =>
+            navigation.navigate("Directory", {
+              screen: "CampsiteInfo",
+              params: { campsite },
+            })
+          }
+        >
+          <Avatar rounded source={{ uri: baseUrl + campsite.image }} />
 
-        <ListItem.Content>
-          <ListItem.Title>{campsite.name}</ListItem.Title>
-          <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>
-        </ListItem.Content>
-      </ListItem>
+          <ListItem.Content>
+            <ListItem.Title>{campsite.name}</ListItem.Title>
+            <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+      </SwipeRow>
     );
   };
 
