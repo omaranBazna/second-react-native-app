@@ -12,7 +12,28 @@ const FavoritesScreen = ({ navigation }) => {
   const { campsiteArr, isLoading, errMess } = useSelector(
     (state) => state.campsites
   );
-  return <div></div>;
+
+  const favorites = useSelector((state) => state.favorites);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (errMess) {
+    <View>
+      <Text>{errMess}</Text>
+    </View>;
+  }
+  return (
+    <FlatList
+      data={campsiteArr.filter((campsite) => {
+        return favorites.includes(campsite.id);
+      })}
+      renderItem={renderFavoriteItem}
+      keyExtractor={(item) => {
+        item.id.toString();
+      }}
+    />
+  );
 };
 
 export default FavoritesScreen;
