@@ -293,6 +293,25 @@ const Main = () => {
             },
           }}
         ></Drawer.Screen>
+
+        <Drawer.Screen
+          name="FavoritesCampsites"
+          component={ReservationNavigator}
+          options={{
+            title: "My Favorites",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="heart"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
+        ></Drawer.Screen>
         <Drawer.Screen
           name="About"
           component={AboutNavigator}
