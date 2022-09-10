@@ -1,4 +1,5 @@
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, Animated } from "react-native";
+import { useEffect, useRef } from "react";
 import React from "react";
 import { Card } from "react-native-elements";
 
@@ -34,6 +35,12 @@ const HomeScreen = () => {
   const promotions = useSelector((state) => state.promotions);
   const partners = useSelector((state) => state.partners);
 
+  const scaleValue = useRef(new Animated.Value(0).current);
+  const scaleAnimation = Animated.timing(scaleValue, {
+    toValue: 1,
+    duration: 1500,
+    useNativeDriver: true,
+  });
   const featCampsite = campsites.campsitesArr.find(
     (campsite) => campsite.featured
   );
@@ -48,13 +55,15 @@ const HomeScreen = () => {
   if (isLoading) {
     return <Loading />;
   }
+
+  useEffect(scaleAnimation.start(), []);
   return (
-    <ScrollView>
+    <Animated.ScrollView style={{ transform: [{ scale: scaleValue }] }}>
       <Text>Home Screen</Text>
       <FeaturedItem item={featCampsite} />
       <FeaturedItem item={featPromotion} />
       <FeaturedItem item={featPartner} />
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 
