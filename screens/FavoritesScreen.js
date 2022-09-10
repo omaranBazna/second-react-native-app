@@ -9,7 +9,7 @@ import { baseUrl } from "../shared/baseUrl";
 import React from "react";
 
 const FavoritesScreen = ({ navigation }) => {
-  const { campsiteArr, isLoading, errMess } = useSelector(
+  const { campsitesArr, isLoading, errMess } = useSelector(
     (state) => state.campsites
   );
 
@@ -43,7 +43,7 @@ const FavoritesScreen = ({ navigation }) => {
   }
   return (
     <FlatList
-      data={campsiteArr.filter((campsite) => {
+      data={campsitesArr.filter((campsite) => {
         return favorites.includes(campsite.id);
       })}
       renderItem={renderFavoriteItem}
