@@ -90,7 +90,7 @@ const FavoritesNavigator = () => {
             headerLeft: () => {
               return (
                 <Icon
-                  name="tree"
+                  name="heart"
                   type="font-awesome"
                   iconStyle={styles.stackIcon}
                   onPress={() => navigation.toggleDrawer()}
