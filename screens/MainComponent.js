@@ -2,7 +2,7 @@ import DirectoryScreen from "./DirectoryScreen";
 import { StyleSheet, Image, Text, Platform, View } from "react-native";
 import { Icon } from "react-native-elements";
 import CampsitesInfoScreen from "./CampsitesInfoScreen";
-
+import FavoritesScreen from "./FavoritesScreen";
 import Constants from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -59,6 +59,34 @@ const ReservationNavigator = () => {
         options={({ navigation }) => {
           return {
             title: "Reservation Search",
+            headerLeft: () => {
+              return (
+                <Icon
+                  name="tree"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
+            },
+          };
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const FavoritesNavigator = () => {
+  const Stack = createStackNavigator();
+
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={({ navigation }) => {
+          return {
+            title: "Favorites",
             headerLeft: () => {
               return (
                 <Icon
