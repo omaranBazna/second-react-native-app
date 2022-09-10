@@ -13,6 +13,24 @@ const FavoritesScreen = ({ navigation }) => {
     (state) => state.campsites
   );
 
+  const renderFavoriteItem = ({ item: campsite }) => {
+    return (
+      <ListItem
+        onPress={() => {
+          navigation.navigate("Directory", {
+            screen: "CampsiteInfo",
+            params: { campsite },
+          });
+        }}
+      >
+        <Avatar rounded src={{ uri: baseUrl + campsite.image }} />
+        <ListItem.content>
+          <ListItem.Title>{campsite.name}</ListItem.Title>
+          <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>
+        </ListItem.content>
+      </ListItem>
+    );
+  };
   const favorites = useSelector((state) => state.favorites);
 
   if (isLoading) {
