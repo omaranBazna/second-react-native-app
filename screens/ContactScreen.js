@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, Text } from "react-native";
 import { Card } from "react-native-elements";
-
+import * as Animatable from "react-native-animatable";
 const ContactScreen = () => {
   return (
     <ScrollView>

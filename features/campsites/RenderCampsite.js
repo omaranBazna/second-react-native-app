@@ -2,6 +2,7 @@ import { View, Text, PanResponder } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { StyleSheet } from "react-native";
 import { baseUrl } from "../../shared/baseUrl";
+import * as Animatable from "react-native-animatable";
 const RenderCampsite = ({
   campsite,
   isFavorite,

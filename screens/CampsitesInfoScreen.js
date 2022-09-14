@@ -7,7 +7,7 @@ import { Button, Modal } from "react-native";
 import { useState } from "react";
 import { Input, Rating } from "react-native-elements";
 import { postComment } from "../features/comments/commentsSlice";
-
+import * as Animatable from "react-native-animatable";
 const CampsitesInfoScreen = ({ route }) => {
   const { campsite } = route.params;
   const comments = useSelector((state) => state.comments);
