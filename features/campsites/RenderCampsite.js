@@ -10,6 +10,12 @@ const RenderCampsite = ({
 }) => {
   const isLeftSwap = ({ dx }) => dx < -200;
 
+  const panResponder = panResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onPanResponderEnd: (e, gestureState) => {
+      console.log("gesture end", gestureState);
+    },
+  });
   if (campsite) {
     return (
       <Card containerStyle={{ padding: 0 }}>
