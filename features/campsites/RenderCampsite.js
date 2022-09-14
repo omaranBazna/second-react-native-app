@@ -8,6 +8,8 @@ const RenderCampsite = ({
   markFavorite,
   onShowModal,
 }) => {
+  const isLeftSwap = ({ dx }) => dx < -200;
+
   if (campsite) {
     return (
       <Card containerStyle={{ padding: 0 }}>
