@@ -14,8 +14,10 @@ const RenderCampsite = ({
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
 
-    onPanResponderEnd: () => {
-      console.log("true");
+    onPanResponderEnd: (e, gestureState) => {
+      if (isLeftSwipe(gestureState)) {
+        console.log("swap");
+      }
     },
   });
   console.log(panResponder);
