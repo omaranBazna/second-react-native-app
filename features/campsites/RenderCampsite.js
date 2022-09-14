@@ -32,36 +32,38 @@ const RenderCampsite = ({
   });
   if (campsite) {
     return (
-      <Card containerStyle={{ padding: 0 }}>
-        <Card.Image source={{ uri: baseUrl + campsite.image }}>
-          <View style={{ justifyContent: "center", flex: 1 }}>
-            <Text style={styles.Card}>{campsite.name}</Text>
-          </View>
-        </Card.Image>
-        <Text style={{ margin: 20 }}>{campsite.description}</Text>
-        <View style={styles.cardRow}>
-          <Icon
-            onPress={() => {
-              console.log("test");
-              markFavorite();
-            }}
-            name={isFavorite ? "heart" : "heart-o"}
-            type="font-awesome"
-            color="#f50"
-            raised
-            reverse
-          />
+      <Animatable.View animation="fadeInDownBig" duration={2000} delay={1000}>
+        <Card containerStyle={{ padding: 0 }}>
+          <Card.Image source={{ uri: baseUrl + campsite.image }}>
+            <View style={{ justifyContent: "center", flex: 1 }}>
+              <Text style={styles.Card}>{campsite.name}</Text>
+            </View>
+          </Card.Image>
+          <Text style={{ margin: 20 }}>{campsite.description}</Text>
+          <View style={styles.cardRow}>
+            <Icon
+              onPress={() => {
+                console.log("test");
+                markFavorite();
+              }}
+              name={isFavorite ? "heart" : "heart-o"}
+              type="font-awesome"
+              color="#f50"
+              raised
+              reverse
+            />
 
-          <Icon
-            onPress={() => onShowModal()}
-            name={"pencil"}
-            type="font-awesome"
-            color="#5637DD"
-            raised
-            reverse
-          />
-        </View>
-      </Card>
+            <Icon
+              onPress={() => onShowModal()}
+              name={"pencil"}
+              type="font-awesome"
+              color="#5637DD"
+              raised
+              reverse
+            />
+          </View>
+        </Card>
+      </Animatable.View>
     );
   }
   return <View />;
