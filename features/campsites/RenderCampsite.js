@@ -1,4 +1,4 @@
-import { View, Text, PanResponder } from "react-native";
+import { View, Text, PanResponder, Alert } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { StyleSheet } from "react-native";
 import { baseUrl } from "../../shared/baseUrl";
@@ -16,7 +16,25 @@ const RenderCampsite = ({
 
     onPanResponderEnd: (e, gestureState) => {
       if (isLeftSwipe(gestureState)) {
-        console.log("swap");
+        Alert.alert(
+          "Add Favorite",
+          "Are you sure you wish to add " + campsite.name + " to favorites?",
+          [
+            {
+              text: "Cancel",
+              style: "cancel",
+              onPress: () => console.log("Cancel Pressed"),
+            },
+            {
+              text: "OK",
+              onPress: () =>
+                isFavorite
+                  ? console.log("Already set as a favorite")
+                  : markFavorite(),
+            },
+          ],
+          { cancelable: false }
+        );
       }
     },
   });
