@@ -7,6 +7,7 @@ import { Card } from "react-native-elements";
 import { Text } from "react-native";
 import Loading from "../components/LoadingComponent";
 import { useSelector } from "react-redux";
+import * as Animatable from "react-native-animatable";
 const Mission = () => {
   return (
     <Card>
