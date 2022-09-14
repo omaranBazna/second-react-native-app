@@ -56,7 +56,7 @@ const CampsitesInfoScreen = ({ route }) => {
   };
 
   return (
-    <>
+    <Animatable.View animation="fadeInUp" duration={2000} delay={1000}>
       <FlatList
         data={comments.commentsArr.filter(
           (comment) => comment.campsiteId === campsite.id
@@ -136,7 +136,7 @@ const CampsitesInfoScreen = ({ route }) => {
           </View>
         </Modal>
       )}
-    </>
+    </Animatable.View>
   );
 };
 
