@@ -9,30 +9,24 @@ const RenderCampsite = ({
   markFavorite,
   onShowModal,
 }) => {
-  const isLeftSwap = ({ dx }) => dx < -200;
-
-  /*
-  const panResponder = panResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onPanResponderEnd: (e, gestureState) => {
-      console.log("gesture end", gestureState);
-    },
-  });
-  */
+  const isLeftSwipe = ({ dx }) => dx < -200;
 
   const panResponder = PanResponder.create({
-    onStartShouldSetPanResponder: (evt, gestureState) => true,
-    onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-    onMoveShouldSetPanResponder: (evt, gestureState) => true,
-    onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-    onPanResponderEnd: (e, gestureState) => {
-      console.log("end");
-      console.log(gestureState);
+    onStartShouldSetPanResponder: () => true,
+
+    onPanResponderEnd: () => {
+      console.log("true");
     },
   });
+  console.log(panResponder);
   if (campsite) {
     return (
-      <Animatable.View animation="fadeInDownBig" duration={2000} delay={1000}>
+      <Animatable.View
+        animation="fadeInDownBig"
+        duration={2000}
+        delay={1000}
+        {...panResponder.panHandlers}
+      >
         <Card containerStyle={{ padding: 0 }}>
           <Card.Image source={{ uri: baseUrl + campsite.image }}>
             <View style={{ justifyContent: "center", flex: 1 }}>
