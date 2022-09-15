@@ -11,7 +11,7 @@ const RenderCampsite = ({
   onShowModal,
 }) => {
   const isLeftSwipe = ({ dx }) => dx < -200;
-
+  const isRightSwipe = ({ dx }) => dx > 200;
   const view = useRef();
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -40,10 +40,12 @@ const RenderCampsite = ({
           ],
           { cancelable: false }
         );
+      } else if (isRightSwipe(gestureState)) {
+        onShowModal();
       }
     },
   });
-  console.log(panResponder);
+
   if (campsite) {
     return (
       <Animatable.View
