@@ -43,10 +43,8 @@ const ReservationsScreen = () => {
         {
           text: "OK",
           onPress: () => {
-            console.log("campers", campers);
-            console.log("Hikein", hikeIn);
-            console.log("date", date);
-            console.log("show Calender", showCalendar);
+            resetForm();
+            presentLocalNotification(date.toLocaleDateString("en-US"));
           },
           style: "ok",
         },
@@ -63,20 +61,29 @@ const ReservationsScreen = () => {
   };
 
   const presentLocalNotification = async (reservationDate) => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: true,
-        shouldSetBadge: true,
-      }),
-    });
-    Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Your Campsite Reservation Search",
-        body: `Search for ${reservationDate} requested`,
-      },
-      trigger: null,
-    });
+    const sendNotification = () => {
+      Notifications.setNotificationHandler({
+        handleNotification: async () => ({
+          shouldShowAlert: true,
+          shouldPlaySound: true,
+          shouldSetBadge: true,
+        }),
+      });
+      Notifications.scheduleNotificationAsync({
+        content: {
+          title: "Your Campsite Reservation Search",
+          body: `Search for ${reservationDate} requested`,
+        },
+        trigger: null,
+      });
+    };
+    let permissions = await Notifications.getPermissionsAsync();
+    if (!permissions.granted) {
+      permissions = await Notifications.requestPermissionsAsync();
+    }
+    if (permissions.granted) {
+      sendNotification();
+    }
   };
 
   return (
