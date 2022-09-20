@@ -286,6 +286,31 @@ const Main = () => {
             },
           }}
         ></Drawer.Screen>
+
+
+<Drawer.Navigator
+        initialRouteName="Login"
+        drawerContent={CustomDrawerContent}
+        drawerStyle={{ backgroundColor: "#CEC8FF" }}
+      >
+        <Drawer.Screen
+          name="Login"
+          component={LoginNavigator}
+          options={{
+            title: "Login",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="sign-in"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
+        ></Drawer.Screen>
         <Drawer.Screen
           name="Directory"
           component={DirectoryNavigator}
