@@ -9,7 +9,7 @@ import React from "react";
 import * as ImagePicker from "expo-image-picker";
 import { baseUrl } from "../shared/baseUrl";
 import logo from "../assets/images/logo.png";
-import ImageManipulator from "expo-image-manipulator";
+import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
 const LoginTab = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -148,21 +148,41 @@ const RegisterTab = () => {
       });
       if (!capturedImage.cancelled) {
         console.log(capturedImage);
-        processImage(capturedImage.uri);
+        await processImage(capturedImage.uri);
       }
     }
   };
 
-  const processImage = async ({ Url }) => {
-    const processedImage = await ImageManipulator.manipulateAsync(
-      Url,
-      { ActionResize: { width: 400 } },
-      {
-        format: SaveFormat.PNG,
+  const processImage = async (Url) => {
+    try {
+      console.log(Url);
+      const processedImage = await manipulateAsync(
+        Url,
+        [{ resize: { width: 400 } }],
+        {
+          format: SaveFormat.PNG,
+        }
+      );
+      console.log(processedImage);
+      setImageUrl(processedImage.uri);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getImageFromGallery = async () => {
+    const mediaLibraryPermissions =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (mediaLibraryPermissions.granted) {
+      const capturedImage = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [1, 1],
+      });
+      if (!capturedImage.cancelled) {
+        console.log(capturedImage);
+        setImageUrl(capturedImage.uri);
       }
-    );
-    console.log(processedImage);
-    setImageUrl(processedImage.uri);
+    }
   };
   return (
     <ScrollView>
@@ -173,6 +193,7 @@ const RegisterTab = () => {
           style={styles.image}
         />
         <Button title="Camera" onPress={getImageFromCamera} />
+        <Button title="Gallery" onPress={getImageFromGallery} />
       </View>
       <View style={styles.container}>
         <Input
