@@ -264,31 +264,6 @@ const Main = () => {
       }}
     >
       <Drawer.Navigator
-        initialRouteName="Home"
-        drawerContent={CustomDrawerContent}
-        drawerStyle={{ backgroundColor: "#CEC8FF" }}
-      >
-        <Drawer.Screen
-          name="Home"
-          component={HomeNavigator}
-          options={{
-            title: "Home",
-            drawerIcon: () => {
-              return (
-                <Icon
-                  name="home"
-                  type="font-awesome"
-                  size={24}
-                  iconStyle={{ width: 24 }}
-                  color={"white"}
-                />
-              );
-            },
-          }}
-        ></Drawer.Screen>
-
-
-<Drawer.Navigator
         initialRouteName="Login"
         drawerContent={CustomDrawerContent}
         drawerStyle={{ backgroundColor: "#CEC8FF" }}
@@ -311,6 +286,25 @@ const Main = () => {
             },
           }}
         ></Drawer.Screen>
+        <Drawer.Screen
+          name="Home"
+          component={HomeNavigator}
+          options={{
+            title: "Home",
+            drawerIcon: () => {
+              return (
+                <Icon
+                  name="home"
+                  type="font-awesome"
+                  size={24}
+                  iconStyle={{ width: 24 }}
+                  color={"white"}
+                />
+              );
+            },
+          }}
+        ></Drawer.Screen>
+
         <Drawer.Screen
           name="Directory"
           component={DirectoryNavigator}
