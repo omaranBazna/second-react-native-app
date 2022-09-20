@@ -1,4 +1,4 @@
-import { View, Text, PanResponder, Alert } from "react-native";
+import { View, Text, PanResponder, Alert, Share } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { StyleSheet } from "react-native";
 import { baseUrl } from "../../shared/baseUrl";
@@ -45,6 +45,19 @@ const RenderCampsite = ({
       }
     },
   });
+
+  const shareCampsite = (title, message, url) => {
+    Share.share(
+      {
+        title,
+        message: `${title}: ${message} ${url}`,
+        url,
+      },
+      {
+        dialogTitle: "Share " + title,
+      }
+    );
+  };
 
   if (campsite) {
     return (
