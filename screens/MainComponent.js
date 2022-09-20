@@ -272,22 +272,29 @@ const Main = () => {
     dispatch(fetchComments());
   }, [dispatch]);
 
-  useEffect(() => {
-    NetInfo.fetch().then((connectionInfo) => {
-      if (Platform.OS === "ios") {
-        Alert.alert("Initial Network Connectivity Type :", connectionInfo.type);
-      } else {
-        ToastAndroid.show(
-          "Initial Network Connectivity Type : " + connectionInfo.type,
-          ToastAndroid.LONG
-        );
-      }
+  /////////Task 3
 
-      const unsubscribeNetInfo = NetInfo.addEventListener((connectionInfo) => {
+  const showNetInfo = async () => {
+    const connectionInfo = NetInfo.fetch();
+    if (Platform.OS === "ios") {
+      Alert.alert("Initial Network Connectivity Type :", connectionInfo.type);
+    } else {
+      ToastAndroid.show(
+        "Initial Network Connectivity Type : " + connectionInfo.type,
+        ToastAndroid.LONG
+      );
+    }
+
+    const unsubscribeNetInfo = await NetInfo.addEventListener(
+      (connectionInfo) => {
         handleConnectivityChange(connectionInfo);
-      });
-      return unsubscribeNetInfo;
-    });
+      }
+    );
+    return unsubscribeNetInfo;
+  };
+
+  useEffect(() => {
+    showNetInfo();
   }, []);
 
   const handleConnectivityChange = (connectionInfo) => {
