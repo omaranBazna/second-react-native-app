@@ -148,19 +148,21 @@ const RegisterTab = () => {
       });
       if (!capturedImage.cancelled) {
         console.log(capturedImage);
-        setImageUrl(capturedImage.uri);
+        processImage(capturedImage.uri);
       }
     }
   };
 
-  const processImage = async () => {
+  const processImage = async ({ Url }) => {
     const processedImage = await ImageManipulator.manipulateAsync(
-      imageUrl,
+      Url,
       { ActionResize: { width: 400 } },
       {
         format: SaveFormat.PNG,
       }
     );
+    console.log(processedImage);
+    setImageUrl(processedImage.uri);
   };
   return (
     <ScrollView>
