@@ -96,6 +96,21 @@ const RenderCampsite = ({
               raised
               reverse
             />
+
+            <Icon
+              onPress={() =>
+                shareCampsite(
+                  campsite.name,
+                  campsite.description,
+                  baseUrl + campsite.image
+                )
+              }
+              name={"share"}
+              type="font-awesome"
+              color="#5637DD"
+              raised
+              reverse
+            />
           </View>
         </Card>
       </Animatable.View>
