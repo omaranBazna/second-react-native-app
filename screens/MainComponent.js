@@ -1,5 +1,13 @@
 import DirectoryScreen from "./DirectoryScreen";
-import { StyleSheet, Image, Text, Platform, View } from "react-native";
+import {
+  StyleSheet,
+  Image,
+  Text,
+  Platform,
+  View,
+  Alert,
+  ToastAndroid,
+} from "react-native";
 import { Icon } from "react-native-elements";
 import CampsitesInfoScreen from "./CampsitesInfoScreen";
 import FavoritesScreen from "./FavoritesScreen";
@@ -26,6 +34,7 @@ import { fetchComments } from "../features/comments/commentsSlice";
 
 import { getFocusedRouteNameFromRoute } from "@react-navigation/core";
 
+import NetInfo from "@react-native-community/netinfo";
 const Drawer = createDrawerNavigator();
 const screenOptions = {
   headerTintColor: "#fff",
@@ -262,6 +271,19 @@ const Main = () => {
     dispatch(fetchPartners());
     dispatch(fetchComments());
   }, [dispatch]);
+
+  useEffect(() => {
+    NetInfo.fetch().then((connectionInfo) => {
+      if (Platform.OS === "ios") {
+        Alert.alert("Initial Network Connectivity Type :", connectionInfo.type);
+      } else {
+        ToastAndroid.show(
+          "Initial Network Connectivity Type : " + connectionInfo.type,
+          ToastAndroid.LONG
+        );
+      }
+    });
+  }, []);
   return (
     <View
       style={{
