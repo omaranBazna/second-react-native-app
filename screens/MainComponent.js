@@ -275,7 +275,8 @@ const Main = () => {
   /////////Task 3
 
   const showNetInfo = async () => {
-    const connectionInfo = NetInfo.fetch();
+    const connectionInfo = await NetInfo.fetch();
+    console.log(connectionInfo);
     if (Platform.OS === "ios") {
       Alert.alert("Initial Network Connectivity Type :", connectionInfo.type);
     } else {
