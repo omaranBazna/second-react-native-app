@@ -14,7 +14,7 @@ import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import * as Animatable from "react-native-animatable";
-
+import * as Notifications from "expo-notifications";
 const ReservationsScreen = () => {
   const [campers, setCampers] = useState(1);
   const [hikeIn, setHikeIn] = useState(false);
@@ -54,12 +54,31 @@ const ReservationsScreen = () => {
       { cancelable: false }
     );
   };
+
   const resetForm = () => {
     setCampers(1);
     setHikeIn(false);
     setDate(new Date());
     setShowCalendar(false);
   };
+
+  const presentLocalNotification = async (reservationDate) => {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+      }),
+    });
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Your Campsite Reservation Search",
+        body: `Search for ${reservationDate} requested`,
+      },
+      trigger: null,
+    });
+  };
+
   return (
     <ScrollView>
       <Animatable.View animation="zoomIn" duration={2000} delay={1000}>
