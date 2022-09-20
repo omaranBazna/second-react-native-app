@@ -14,7 +14,29 @@ const LoginScreen = () => {
     console.log("username:", username);
     console.log("password:", password);
     console.log("remember:", remember);
+    if (remember) {
+      SecureStore.setItemAsync(
+        "userinfo",
+        JSON.stringify({
+          username,
+          password,
+        })
+      ).catch((e) => console.log(e));
+    } else {
+      SecureStore.deleteItemAsync("userinfo").catch((e) => console.log(e));
+    }
   };
+
+  useEffect(() => {
+    SecureStore.getItemAsync("userinfo").then((userdata) => {
+      const userinfo = JSON.parse(userdata);
+      if (userinfo) {
+        setUsername(userinfo.username);
+        setPassword(userinfo.password);
+        setRemember(true);
+      }
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
