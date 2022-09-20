@@ -15,6 +15,7 @@ import HomeScreen from "./HomeScreen";
 import ContactScreen from "./ContactScreen";
 import AboutScreen from "./AboutScreen";
 import ReservationsScreen from "./ReservationsScreen";
+import LoginScreen from "./LoginScreen";
 
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -22,6 +23,7 @@ import { fetchPartners } from "../features/partners/partnersSlice";
 import { fetchCampsites } from "../features/campsites/campsitesSlice";
 import { fetchPromotions } from "../features/promotions/promotionsSlice";
 import { fetchComments } from "../features/comments/commentsSlice";
+
 const Drawer = createDrawerNavigator();
 const screenOptions = {
   headerTintColor: "#fff",
@@ -104,6 +106,33 @@ const FavoritesNavigator = () => {
   );
 };
 
+const LoginNavigator = () => {
+  const Stack = createStackNavigator();
+
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={({ navigation }) => {
+          return {
+            title: "Login",
+            headerLeft: () => {
+              return (
+                <Icon
+                  name="sign-in"
+                  type="font-awesome"
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+                />
+              );
+            },
+          };
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 const ContactNavigator = () => {
   const Stack = createStackNavigator();
 
