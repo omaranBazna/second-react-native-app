@@ -9,7 +9,7 @@ import React from "react";
 import * as ImagePicker from "expo-image-picker";
 import { baseUrl } from "../shared/baseUrl";
 import logo from "../assets/images/logo.png";
-
+import ImageManipulator from "expo-image-manipulator";
 const LoginTab = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -151,6 +151,16 @@ const RegisterTab = () => {
         setImageUrl(capturedImage.uri);
       }
     }
+  };
+
+  const processImage = async () => {
+    const processedImage = await ImageManipulator.manipulateAsync(
+      imageUrl,
+      { ActionResize: { width: 400 } },
+      {
+        format: SaveFormat.PNG,
+      }
+    );
   };
   return (
     <ScrollView>
